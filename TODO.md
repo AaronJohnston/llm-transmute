@@ -1,1 +1,1 @@
-- Could llama-cpp-python be using Metal if I installed the correct Conda? It causes a segfault when I try to run with GPU currently.
+- Is llama-cpp-python running with the GPU currently?
