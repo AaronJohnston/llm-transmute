@@ -4,7 +4,15 @@
     <title>LLM Transmute Test</title>
   </head>
   <body>
-    <p hx-get="/test"></p>
+    <h1>LLM Transmute Test</h1>
+    <p>
+      The server is:
+      <span
+        style="font-weight: bold"
+        hx-get="/healthcheck"
+        hx-trigger="load"
+      ></span>
+    </p>
     <script src="https://unpkg.com/htmx.org@1.7.0/dist/htmx.min.js"></script>
   </body>
 </html>
