@@ -2,7 +2,4 @@
   <p><span style="font-weight: bold">Input:</span> {{input}}</p>
   <p><span style="font-weight: bold">Output:</span> {{output}}</p>
 </li>
-<form>
-  <textarea id="llm-input" name="input"></textarea>
-  <button id="llm-submit" hx-post="/llm">Get LLM Result</button>
-</form>
+{% block form %} {% include 'fragments/form.html' %} {% endblock %}
