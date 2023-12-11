@@ -14,8 +14,19 @@
       ></span>
     </p>
 
-    <button hx-get="/llm" hx-target="#llm-result">Get LLM Result</button>
-    <div id="llm-result"></div>
+    <form>
+      <textarea id="llm-input"></textarea>
+      <button
+        id="llm-submit"
+        hx-post="/llm"
+        hx-target="#llm-output"
+        hx-swap="afterbegin"
+      >
+        Get LLM Result
+      </button>
+    </form>
+
+    <div id="llm-output"></div>
 
     <script src="https://unpkg.com/htmx.org@1.7.0/dist/htmx.min.js"></script>
   </body>

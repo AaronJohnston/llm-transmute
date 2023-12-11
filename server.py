@@ -12,12 +12,14 @@ async def index():
     return FileResponse('index.html')
 
 @app.get('/healthcheck', response_class=PlainTextResponse)
-async def test():
+async def healthcheck():
     return 'working'
 
-@app.get('/llm')
-async def test():
-    return llm(
+@app.get('/llm', response_class=PlainTextResponse)
+async def query_llm():
+    output = llm(
         'Q: What is the peak of an orbit called? A:',
-        max_tokens=32
+        max_tokens=32,
+        stop=["Q:", "\n"]
     )
+    return output['choices'][0]['text']
