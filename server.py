@@ -24,8 +24,8 @@ async def healthcheck():
 @app.post('/llm', response_class=HTMLResponse)
 async def query_llm(request: Request, input: Annotated[str, Form()]):
     output = llm(
-        input,
-        max_tokens=32,
+        f'Q: {input} \n A:',
+        max_tokens=64,
         stop=["Q:", "\n"]
     )
     return templates.TemplateResponse('llm_response.html', {'request': request, 'input': input, 'output': output['choices'][0]['text']})
