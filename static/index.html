@@ -16,14 +16,7 @@
 
     <form>
       <textarea id="llm-input" name="input"></textarea>
-      <button
-        id="llm-submit"
-        hx-post="/llm"
-        hx-target="#llm-output"
-        hx-swap="afterbegin"
-      >
-        Get LLM Result
-      </button>
+      <button id="llm-submit" hx-post="/llm">Get LLM Result</button>
     </form>
 
     <div id="llm-output"></div>
