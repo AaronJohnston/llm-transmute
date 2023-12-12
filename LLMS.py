@@ -35,7 +35,21 @@ class Mistral7BInstructLLM:
         return output[0]
 
 
-class Mistral7BInstructQuantizedLLM:
+class Mistral7BInstructQuantizedQ3_K_MLLM:
+    def __init__(self):
+        self.llm = Llama(
+            model_path='./models/mistral-7b-instruct-v0.2.Q3_K_M.gguf')
+
+    def inference(self, input: str):
+        output = self.llm(
+            f'<s>[INST] {input} [/INST]',
+            max_tokens=512,
+            stop=['</s>']
+        )
+        return output['choices'][0]['text']
+
+
+class Mistral7BInstructQuantizedQ5_K_MLLM:
     def __init__(self):
         self.llm = Llama(
             model_path='./models/mistral-7b-instruct-v0.2.Q5_K_M.gguf')
@@ -43,7 +57,7 @@ class Mistral7BInstructQuantizedLLM:
     def inference(self, input: str):
         output = self.llm(
             f'<s>[INST] {input} [/INST]',
-            max_tokens=64,
+            max_tokens=512,
             stop=['</s>']
         )
         return output['choices'][0]['text']
@@ -53,7 +67,8 @@ class LLMS:
     def __init__(self):
         self.llms = {
             'llama': Llama2LLM(),
-            'mistral': Mistral7BInstructQuantizedLLM()
+            'mistralQ3': Mistral7BInstructQuantizedQ3_K_MLLM(),
+            'mistralQ5': Mistral7BInstructQuantizedQ5_K_MLLM(),
             # 'mistral': Mistral7BInstructLLM()
         }
 
