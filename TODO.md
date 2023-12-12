@@ -1,1 +1,4 @@
-- Is llama-cpp-python running with the GPU currently?
+- llama-cpp-python is not utilizing the Mac GPU. It encounters a segmentation fault accessing llama_cpp/ggml-metal.metal.
+  - This may be related to how Metal is being accessed (it should be possible to use Metal on Intel Macs, but many folks report similar issues. BLAS might be needed.)
+  - Or it may simply be that the model is overwhelming the VRAM of the GPU.
+  - https://github.com/imartinez/privateGPT/issues/1182 has many users with the same issue.
