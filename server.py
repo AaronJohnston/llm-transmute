@@ -18,6 +18,6 @@ async def index(request: Request):
 
 
 @app.post('/llm', response_class=HTMLResponse)
-async def query_llm(request: Request, input: Annotated[str, Form()]):
-    outputs = llms.inference(input)
-    return templates.TemplateResponse('llm_response.html', {'request': request, 'input': input, 'outputs': outputs})
+async def query_llm(request: Request, original: Annotated[str, Form()], modified: Annotated[str, Form()]):
+    outputs = llms.inference(original, modified)
+    return templates.TemplateResponse('llm_response.html', {'request': request, 'original': original, 'modified': modified, 'outputs': outputs})

@@ -1,7 +1,16 @@
-<form class="m-4 p-3 bg-zinc-200 rounded-lg flex flex-row">
-    <input type="text" id="llm-input" name="input" class="grow mr-2 px-2 rounded-l-md text-teal-700"></input>
-    <button id="llm-submit" class="bg-teal-700 px-2 py-1 rounded-r-md text-zinc-200" hx-post="/llm"
-        hx-target="closest form" hx-swap="outerHTML" hx-indicator="#llm-submit">
+<form class="m-4 p-3 bg-zinc-200 rounded-lg flex flex-row gap-2 items-end">
+    <label for="original" class="flex flex-col grow">
+        Original Lines
+        <textarea id="original" name="original" class="rounded-l-md text-teal-700 h-32 p-2"></textarea>
+    </label>
+    <label for="modified" class="flex flex-col grow">
+        Modify the First Few Lines
+        <textarea id="modified" name="modified" class="text-teal-700 h-32 p-2"></textarea>
+    </label>
+    <!-- <textarea <input type="text" id="llm-input" name="input" class="grow mr-2 px-2 rounded-l-md text-teal-700"></input> -->
+    <button id="llm-submit"
+        class="bg-teal-700 py-1 h-32 w-12 flex flex-row justify-center items-center rounded-r-md text-zinc-200"
+        hx-post="/llm" hx-target="closest form" hx-swap="outerHTML" hx-indicator="#llm-submit">
         <span id="llm-submit-label">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                 <path

@@ -1,7 +1,9 @@
 <div hx-swap-oob="afterbegin:#llm-results">
     <ul class="p-3 bg-zinc-100 rounded-lg">
-        <li class="mb-1"><span class="text-teal-700"><span class="font-semibold">Input:</span>
-                {{input}}</span></li>
+        <li class=""><span class="text-teal-700"><span class="font-semibold">Original:</span>
+                {{original}}</span></li>
+        <li class="mb-1"><span class="text-teal-700"><span class="font-semibold">Modified:</span>
+                {{modified}}</span></li>
         {% for model_name, model_output in outputs.items() %}
         <li><span class="font-semibold">{{model_name}}:</span> {{model_output['output']}} <span
                 class="font-light text-teal-700 opacity-40">({{model_output['time']|round(2)}} sec;
