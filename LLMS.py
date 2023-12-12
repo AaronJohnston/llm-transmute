@@ -43,7 +43,7 @@ class Mistral7BInstructQuantizedLLM:
     def inference(self, input: str):
         output = self.llm(
             f'<s>[INST] {input} [/INST]',
-            max_tokens=512,
+            max_tokens=64,
             stop=['</s>']
         )
         return output['choices'][0]['text']
@@ -65,6 +65,7 @@ class LLMS:
             stop = time.perf_counter()
             result[model_name] = {
                 'output': model_output,
-                'time': stop - start
+                'time': stop - start,
+                'words': len(model_output.split())
             }
         return result

@@ -4,7 +4,9 @@
                 {{input}}</span></li>
         {% for model_name, model_output in outputs.items() %}
         <li><span class="font-semibold">{{model_name}}:</span> {{model_output['output']}} <span
-                class="font-light text-teal-300">({{model_output['time']}}s)</span></li>
+                class="font-light text-teal-700 opacity-40">({{model_output['time']|round(2)}} sec;
+                {{model_output['words']}} words; {{(model_output['time']/model_output['words'])|round(2)}}
+                sec/word)</span></li>
         {% endfor %}
     </ul>
 </div>
