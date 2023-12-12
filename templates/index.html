@@ -10,7 +10,16 @@
 
   {% block form %} {% include 'fragments/form.html' %} {% endblock %}
 
-  <div id="llm-output"></div>
+  <div id="llm-results">
+    <ul>
+      <li><span style="font-weight: bold">Input:</span> What is the largest ocean?</li>
+      <li><span style="font-weight: bold">Output:</span> The Pacific.</li>
+    </ul>
+    <ul>
+      <li><span style="font-weight: bold">Input:</span> How many days are there in a week?</li>
+      <li><span style="font-weight: bold">Output:</span> Seven.</li>
+    </ul>
+  </div>
 
   <script src="https://unpkg.com/htmx.org@1.7.0/dist/htmx.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>

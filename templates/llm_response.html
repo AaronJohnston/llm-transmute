@@ -1,7 +1,7 @@
-<div hx-swap-oob="afterbegin:#llm-output">
-    <li class="llm-response">
-        <p><span style="font-weight: bold">Input:</span> {{input}}</p>
-        <p><span style="font-weight: bold">Output:</span> {{output}}</p>
-    </li>
+<div hx-swap-oob="afterbegin:#llm-results">
+    <ul>
+        <li><span style="font-weight: bold">Input:</span> {{input}}</li>
+        <li><span style="font-weight: bold">Output:</span> {{output}}</li>
+    </ul>
 </div>
 {% block form %} {% include 'fragments/form.html' %} {% endblock %}
