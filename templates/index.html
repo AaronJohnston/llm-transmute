@@ -3,19 +3,36 @@
 
 <head>
   <title>LLM Transmute Test</title>
+  <style>
+    #llm-submit-label {
+      display: inline;
+    }
+
+    #llm-submit-indicator {
+      display: none;
+    }
+
+    .htmx-request>#llm-submit-label {
+      display: none;
+    }
+
+    .htmx-request>#llm-submit-indicator {
+      display: inline;
+    }
+  </style>
 </head>
 
 <body>
-  <h1>LLM Transmute Test</h1>
+  <h1 class="m-4">LLM Transmute Test</h1>
 
   {% block form %} {% include 'fragments/form.html' %} {% endblock %}
 
-  <div id="llm-results">
-    <ul>
+  <div id="llm-results" class="m-4 flex flex-col gap-3">
+    <ul class="p-3 bg-zinc-100 rounded-lg">
       <li><span style="font-weight: bold">Input:</span> What is the largest ocean?</li>
       <li><span style="font-weight: bold">Output:</span> The Pacific.</li>
     </ul>
-    <ul>
+    <ul class="p-3 bg-zinc-100 rounded-lg">
       <li><span style="font-weight: bold">Input:</span> How many days are there in a week?</li>
       <li><span style="font-weight: bold">Output:</span> Seven.</li>
     </ul>
