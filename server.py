@@ -3,15 +3,13 @@ from typing import Annotated
 from fastapi.responses import HTMLResponse, PlainTextResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-from llama_cpp import Llama
-
-llm = Llama(model_path='./models/codellama-7b.Q4_K_M.gguf')
+from LLMS import LLMS
 
 app = FastAPI()
-
 app.mount('/static', StaticFiles(directory='static'), name='static')
-
 templates = Jinja2Templates(directory='templates')
+
+llms = LLMS()
 
 
 @app.get('/', response_class=HTMLResponse)
@@ -21,9 +19,5 @@ async def index(request: Request):
 
 @app.post('/llm', response_class=HTMLResponse)
 async def query_llm(request: Request, input: Annotated[str, Form()]):
-    output = llm(
-        f'Q: {input} \n A:',
-        max_tokens=64,
-        stop=["Q:", "\n"]
-    )
-    return templates.TemplateResponse('llm_response.html', {'request': request, 'input': input, 'output': output['choices'][0]['text']})
+    outputs = llms.inference(input)
+    return templates.TemplateResponse('llm_response.html', {'request': request, 'input': input, 'outputs': outputs})
