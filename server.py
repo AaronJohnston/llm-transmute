@@ -13,13 +13,11 @@ app.mount('/static', StaticFiles(directory='static'), name='static')
 
 templates = Jinja2Templates(directory='templates')
 
+
 @app.get('/', response_class=HTMLResponse)
 async def index(request: Request):
     return templates.TemplateResponse('index.html', {'request': request})
 
-@app.get('/healthcheck', response_class=PlainTextResponse)
-async def healthcheck():
-    return 'working'
 
 @app.post('/llm', response_class=HTMLResponse)
 async def query_llm(request: Request, input: Annotated[str, Form()]):

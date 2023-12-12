@@ -1,28 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>LLM Transmute Test</title>
-    <style>
-      .llm-response {
-        border-bottom: 1px solid black;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>LLM Transmute Test</h1>
-    <p>
-      The server is:
-      <span
-        style="font-weight: bold"
-        hx-get="/healthcheck"
-        hx-trigger="load"
-      ></span>
-    </p>
 
-    {% block form %} {% include 'fragments/form.html' %} {% endblock %}
+<head>
+  <title>LLM Transmute Test</title>
+</head>
 
-    <div id="llm-output"></div>
+<body>
+  <h1>LLM Transmute Test</h1>
 
-    <script src="https://unpkg.com/htmx.org@1.7.0/dist/htmx.min.js"></script>
-  </body>
+  {% block form %} {% include 'fragments/form.html' %} {% endblock %}
+
+  <div id="llm-output"></div>
+
+  <script src="https://unpkg.com/htmx.org@1.7.0/dist/htmx.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</body>
+
 </html>
