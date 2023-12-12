@@ -3,3 +3,7 @@
   - Or it may simply be that the model is overwhelming the VRAM of the GPU.
   - https://github.com/imartinez/privateGPT/issues/1182 has many users with the same issue.
 - Does form encoding lose newlines? Newlines are being lost somewhere.
+  - I think it's in the display, the model seems to be reacting to line breaks appropriately.
+  - The model did successfully capitalize simple words, but failed to change case of CSS identifiers in the CSS from index.html.
+    - Try several iterations of prompt improvements. The fastest way is probably a way to display each prompt side by side so I can iterate quickly.
+    - This makes me think fine-tuning might be necessary though. Although what is the value prop in identifying how well this model works when it takes 40s to do inference? Seems like a GPU will be needed to prove out the product side. A fine-tune on a very small model that can run quickly does seem useful though.
