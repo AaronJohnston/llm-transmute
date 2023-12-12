@@ -5,7 +5,8 @@ import time
 
 class Llama2LLM:
     def __init__(self):
-        self.llm = Llama(model_path='./models/codellama-7b.Q4_K_M.gguf')
+        self.llm = Llama(
+            model_path='./models/codellama-7b.Q4_K_M.gguf', n_gpu_layers=1)
 
     def inference(self, input: str):
         output = self.llm(
@@ -34,11 +35,16 @@ class Mistral7BInstructLLM:
         return output[0]
 
 
+# class Mistral7BInstructQuantizedLLM:
+#     def __init__(self):
+#         self.llm = Llama(model_path='./models/')
+
+
 class LLMS:
     def __init__(self):
         self.llms = {
-            # 'llama': Llama2LLM(),
-            'mistral': Mistral7BInstructLLM()
+            'llama': Llama2LLM(),
+            # 'mistral': Mistral7BInstructLLM()
         }
 
     def inference(self, input: str):
