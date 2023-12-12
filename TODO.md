@@ -2,3 +2,4 @@
   - This may be related to how Metal is being accessed (it should be possible to use Metal on Intel Macs, but many folks report similar issues. BLAS might be needed.)
   - Or it may simply be that the model is overwhelming the VRAM of the GPU.
   - https://github.com/imartinez/privateGPT/issues/1182 has many users with the same issue.
+- Does form encoding lose newlines? Newlines are being lost somewhere.
